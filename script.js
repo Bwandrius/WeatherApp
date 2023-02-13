@@ -16,16 +16,24 @@ let weather = {
         const { icon, description } = data.weather[0];
         const { temp, humidity } = data.main;
         const { speed } = data.wind;
-        
+        const { dt } = data;
+    
+        const date = new Date(dt * 1000);
+            
+        console.log(date);
+    
         document.querySelector(".city").innerText = "Weather in " + name;
+    
+        document.querySelector(".date-time").innerText = date.toLocaleDateString();
+    
         document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + ".png";
         document.querySelector(".description").innerText = description;
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed " + speed + "km/h";
-
-        document.body.style.backgroundImage = "url('https://source.unsplash.com/featured/?" + name + ',' + description + "')"
-
+    
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/featured/?" + name + "')"
+    
         document.querySelector(".weather").classList.remove("loading");
     },
 
@@ -47,5 +55,7 @@ document.querySelector(".search .search-bar")
 });
 
 weather.fetchWeather("Kaunas");
+
+
 
  
