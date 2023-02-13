@@ -19,13 +19,9 @@ let weather = {
         const { dt } = data;
     
         const date = new Date(dt * 1000);
-            
-        console.log(date);
-    
-        document.querySelector(".city").innerText = "Weather in " + name;
-    
         document.querySelector(".date-time").innerText = date.toLocaleDateString();
-    
+            
+        document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + ".png";
         document.querySelector(".description").innerText = description;
         document.querySelector(".temp").innerText = temp + "°C";
