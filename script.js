@@ -7,7 +7,8 @@ let weather = {
          "https://api.openweathermap.org/data/2.5/weather?q=" 
          + city +"&units=metric&appid=" 
          + this.apiKey
-     ).then((response) => response.json())
+     )
+     .then((response) => response.json())
      .then((data) => this.displayWeather(data));
     },
 
